@@ -1,118 +1,89 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {useState} from 'react';
+import {Button} from 'react-native';
+import styled from 'styled-components/native';
+import Ioincons from 'react-native-vector-icons/Ionicons';
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const TestContainer = ({navigation}: any) => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <Container>
+      <Button
+        title="이동하기"
+        onPress={() => navigation?.navigate('STACK2')}></Button>
+    </Container>
   );
-}
+};
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+const Tab1Stack = () => {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    <Stack.Navigator>
+      <Stack.Screen
+        name="STACK1"
+        component={TestContainer}
+        options={{title: '친구'}}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+      <Stack.Screen
+        name="STACK2"
+        component={Container}
+        options={{title: '설정'}}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarIcon: ({focused}) => {
+            let size = 22;
+            let color = focused ? '#22aaaa' : '#aaa';
+            let name = focused ? 'accessibility' : 'accessibility-outline';
+            return <Ioincons name={name} size={size} color={color} />;
+          },
+        }}>
+        <Tab.Screen
+          name="TAB1"
+          component={Tab1Stack}
+          options={{title: '친구1'}}
+        />
+        <Tab.Screen
+          name="TAB2"
+          component={Container}
+          options={{title: '친구2'}}
+        />
+        <Tab.Screen
+          name="TAB3"
+          component={Container}
+          options={{title: '친구3'}}
+        />
+        <Tab.Screen
+          name="TAB4"
+          component={Container}
+          options={{title: '친구4'}}
+        />
+        <Tab.Screen
+          name="TAB5"
+          component={Container}
+          options={{title: '친구5'}}
+        />
+      </Tab.Navigator>
+      {/* <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Container}
+          options={{title: 'hello'}}
+        />
+      </Stack.Navigator> */}
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+const Container = styled.SafeAreaView`
+  flex: 1;
+`;
