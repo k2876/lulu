@@ -39,15 +39,29 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={{
+        screenOptions={({route}) => ({
           headerShown: false,
+          tabBarShowLabel: false,
           tabBarIcon: ({focused}) => {
-            let size = 22;
+            let size = 24;
             let color = focused ? '#22aaaa' : '#aaa';
-            let name = focused ? 'accessibility' : 'accessibility-outline';
+            let routeName = route?.name;
+            let name = '';
+
+            if (routeName === 'TAB1') {
+              name = focused ? 'accessibility' : 'accessibility-outline';
+            } else if (routeName === 'TAB2') {
+              name = focused ? 'airplane' : 'airplane-outline';
+            } else if (routeName === 'TAB3') {
+              name = focused ? 'airplane' : 'airplane-outline';
+            } else if (routeName === 'TAB4') {
+              name = focused ? 'airplane' : 'airplane-outline';
+            } else if (routeName === 'TAB5') {
+              name = focused ? 'airplane' : 'airplane-outline';
+            }
             return <Ioincons name={name} size={size} color={color} />;
           },
-        }}>
+        })}>
         <Tab.Screen
           name="TAB1"
           component={Tab1Stack}
