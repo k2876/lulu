@@ -1,6 +1,7 @@
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import fontAwesomeIcons from 'react-native-vector-icons/fontAwesome5';
+import Stack from '../screens/stack';
 
 export const screens = {
   HOME: {
@@ -59,35 +60,35 @@ export const tabs = [
   {
     name: screens.HOME.TAB,
     title: screens.HOME.TITLE,
-    // component: Stack.Device,
+    component: Stack.Home,
     Icon: Ionicons,
     icon: {default: 'easel-outline', active: 'easel'},
   },
   {
     name: screens.STUDY.TAB,
     title: screens.STUDY.TITLE,
-    // component: Stack.Product,
+    component: Stack.Study,
     Icon: Ionicons,
     icon: {default: 'cart-outline', active: 'cart'},
   },
   {
     name: screens.TRANSLATE.TAB,
     title: screens.TRANSLATE.TITLE,
-    // component: Stack.Post,
+    component: Stack.Translate,
     Icon: MaterialIcons,
     icon: {default: 'reader-outline', active: 'reader'},
   },
   {
     name: screens.RANKING.TAB,
     title: screens.RANKING.TITLE,
-    // component: Stack.Mode,
+    component: Stack.Ranking,
     Icon: fontAwesomeIcons,
     icon: {default: 'logo-electron', active: 'logo-electron'},
   },
   {
     name: screens.SETTING.TAB,
     title: screens.SETTING.TITLE,
-    // component: Stack.Setting,
+    component: Stack.Setting,
     Icon: Ionicons,
     icon: {default: 'settings-outline', active: 'settings'},
   },

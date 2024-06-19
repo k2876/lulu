@@ -155,6 +155,8 @@ const Stack = {
   ),
 };
 
+export default Stack;
+
 const HeaderTitle = styled.View`
   height: 100%;
 `;
