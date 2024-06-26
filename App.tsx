@@ -16,6 +16,6 @@ export default function App() {
     </Container>
   );
 }
-const Container = styled.SafeAreaView`
+const Container = styled.View`
   flex: 1;
 `;
