@@ -1,6 +1,6 @@
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import fontAwesomeIcons from 'react-native-vector-icons/fontAwesome5';
+import fontAwesomeIcons from 'react-native-vector-icons/FontAwesome5';
 import Stack from '../screens/stack';
 
 export const screens = {
@@ -62,34 +62,35 @@ export const tabs = [
     title: screens.HOME.TITLE,
     component: Stack.Home,
     Icon: Ionicons,
-    icon: {default: 'easel-outline', active: 'easel'},
+    icon: 'home',
+    // icon: {default: 'easel-outline', active: 'easel'},
   },
   {
     name: screens.STUDY.TAB,
     title: screens.STUDY.TITLE,
     component: Stack.Study,
     Icon: Ionicons,
-    icon: {default: 'cart-outline', active: 'cart'},
+    icon: 'book',
   },
   {
     name: screens.TRANSLATE.TAB,
     title: screens.TRANSLATE.TITLE,
     component: Stack.Translate,
     Icon: MaterialIcons,
-    icon: {default: 'reader-outline', active: 'reader'},
+    icon: 'g-translate',
   },
   {
     name: screens.RANKING.TAB,
     title: screens.RANKING.TITLE,
     component: Stack.Ranking,
     Icon: fontAwesomeIcons,
-    icon: {default: 'logo-electron', active: 'logo-electron'},
+    icon: 'crown',
   },
   {
     name: screens.SETTING.TAB,
     title: screens.SETTING.TITLE,
     component: Stack.Setting,
     Icon: Ionicons,
-    icon: {default: 'settings-outline', active: 'settings'},
+    icon: 'settings-sharp',
   },
 ] as const;
