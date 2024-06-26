@@ -1,3 +1,10 @@
+import {View} from 'react-native';
+import Container from '../../layouts/container';
+
 export default () => {
-  return <></>;
+  return (
+    <Container.viewContainer>
+      <View></View>
+    </Container.viewContainer>
+  );
 };
