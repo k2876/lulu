@@ -34,27 +34,6 @@ const screenOptions: NativeStackNavigationOptions = {
   animation: 'ios',
   headerBackTitle: '뒤로',
   headerTitleAlign: 'center',
-  headerTitle: () => {
-    return (
-      <HeaderTitle style={{paddingTop: OS === 'android' ? 2 : 0}}>
-        {/* <Logo source={} /> */}
-      </HeaderTitle>
-    );
-  },
-  headerRight: () => {
-    const [isNotice, setNotice] = useState<boolean>(false);
-
-    return (
-      <>
-        {/* <HeaderRight onPress={() => setNotice(true)}>
-          <Icon name="notifications" />
-        </HeaderRight>
-        <Modal visible={isNotice}>
-          <NoticeModal onClose={() => setNotice(false)} />
-        </Modal> */}
-      </>
-    );
-  },
 };
 
 const HomeStack = createNativeStackNavigator();
@@ -66,8 +45,12 @@ const SettingStack = createNativeStackNavigator();
 
 const Stack = {
   Home: () => (
-    <HomeStack.Navigator screenOptions={{...screenOptions}}>
-      <HomeStack.Screen name={screens.HOME.STACK.DEFAULT} component={Home} />
+    <HomeStack.Navigator screenOptions={screenOptions}>
+      <HomeStack.Screen
+        options={{title: '나중에 바꾸기'}}
+        name={screens.HOME.STACK.DEFAULT}
+        component={Home}
+      />
     </HomeStack.Navigator>
   ),
   Study: () => (

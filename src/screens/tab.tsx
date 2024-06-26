@@ -11,6 +11,7 @@ export default () => {
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: '#d3c5ff',
+          headerShown: false,
         }}>
         {tabs?.map(item => (
           <Tab.Screen
