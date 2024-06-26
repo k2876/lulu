@@ -1,3 +1,9 @@
+import Tab from './tab';
+
 export default () => {
-  return <></>;
+  return (
+    <>
+      <Tab />
+    </>
+  );
 };
